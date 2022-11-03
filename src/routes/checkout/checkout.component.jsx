@@ -8,6 +8,7 @@ import {
 import { setIsCartOpen } from '../../store/cart/cart.action';
 
 import CheckoutItem from '../../components/checkout-item/checkout-item.component';
+import PaymentForm from '../../components/payment-form/payment-form.component';
 
 import {
   CheckoutContainer,
@@ -53,6 +54,7 @@ const Checkout = () => {
       </CheckoutItemsContainer>
 
       <Total>total Price: ${cartTotal}</Total>
+      <PaymentForm />
     </CheckoutContainer>
   );
 };

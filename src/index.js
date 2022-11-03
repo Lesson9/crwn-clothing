@@ -2,13 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-// import reportWebVitals from './reportWebVitals';
-
+import { Elements } from '@stripe/react-stripe-js';
 // import PersistGate which is a component specifically from Redux persists that we can use for React.
 import { PersistGate } from 'redux-persist/integration/react';
+// import reportWebVitals from './reportWebVitals';
+
+import { stripePromise } from './utils/stripe/stripe.utils';
+import { store, persistor } from './store/store'; // also import the persistor
 
 import App from './App';
-import { store, persistor } from './store/store'; // also import the persistor
 
 import './index.scss';
 
@@ -18,7 +20,9 @@ root.render(
   <Provider store={store}>
     <PersistGate persistor={persistor}>
       <BrowserRouter>
-        <App />
+        <Elements stripe={stripePromise}>
+          <App />
+        </Elements>
       </BrowserRouter>
     </PersistGate>
   </Provider>
