@@ -12,7 +12,7 @@ import { store, persistor } from './store/store'; // also import the persistor
 
 import App from './App';
 
-import './index.scss';
+// import './index.scss';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
